@@ -1,0 +1,11 @@
+{
+  "name": "kaif-crud-service",
+  "version": "1.0.0",
+  "description": "CRUD service for all project domain models",
+  "main": "main.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "idvetier <idevtier@gmail.com>",
+  "license": "MIT"
+}
