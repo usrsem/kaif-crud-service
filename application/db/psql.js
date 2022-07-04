@@ -6,18 +6,18 @@ const config = require('../config');
 const pool = new pg.Pool(config.db.postgres);
 
 module.exports = (tableName) => ({
-  query(sql, args) {
+  async query(sql, args) {
     return pool.query(sql, args);
   },
 
-  read(id, fields = ['*']) {
+  async read(id, fields = ['*']) {
     const names = fields.join(', ');
     const sql = `SELECT ${names} FROM ${tableName}`;
     if (!id) return pool.query(sql);
     return pool.query(`${sql} WHERE id = $1`, [id]);
   },
 
-  create(record) {
+  async create(record) {
     const keys = Object.keys(record);
     const nums = new Array(keys.length);
     const data = new Array(keys.length);
@@ -34,7 +34,7 @@ module.exports = (tableName) => ({
     return pool.query(sql, data);
   },
 
-  update(id, record) {
+  async update(id, record) {
     const keys = Object.keys(record);
     const updates = new Array(keys.length);
     const data = new Array(++keys.length);
@@ -53,7 +53,7 @@ module.exports = (tableName) => ({
     return pool.query(sql, data);
   },
 
-  delete(id) {
+  async delete(id) {
     const sql = `DELETE FROM ${tableName} WHERE id = $1`;
     return pool.query(sql, [id]);
   },
