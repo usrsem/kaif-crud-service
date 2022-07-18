@@ -3,11 +3,25 @@
   "version": "1.0.0",
   "description": "CRUD service for all project domain models",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha './test/main.js'",
+    "api": "node main.js"
+  },
   "keywords": [],
   "author": "idvetier <idevtier@gmail.com>",
   "license": "MIT",
+  "types": "types/crud-service.d.ts",
+  "files": [
+    "lib/",
+    "schemas/",
+    "types/"
+  ],
   "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "@usrsem/idevorm": "github:usrsem/idevorm",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
   }
 }
