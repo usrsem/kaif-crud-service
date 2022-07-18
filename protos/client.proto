@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message ClientModel {
+    int64 telegramId = 1;
+    optional string telegramUsername = 2;
+    string telegramFullname = 3;
+}
+
+message ClientSearchRequest {
+    int64 telegramId = 1;
+}
+
+service ClientService {
+    rpc read(ClientSearchRequest) returns (ClientModel) {}
+    rpc create(ClientModel) returns (google.protobuf.Empty) {}
+    rpc update(ClientModel) returns (google.protobuf.Empty) {}
+    rpc delete(ClientSearchRequest) returns (google.protobuf.Empty) {}
+}

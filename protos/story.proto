@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+message StoryModel {
+    int32 id = 1;
+    int64 clientId = 2;
+    int32 eventId = 3;
+    string mediaPath = 4;
+    string mediaType = 5;
+    string tags = 6;
+}
+
+message StorySearchRequest {
+    int32 id = 1;
+}
+
+service StoryService {
+    rpc read(StorySearchRequest) returns (StoryModel) {}
+    rpc create(StoryModel) returns (google.protobuf.Empty) {}
+    rpc update(StoryModel) returns (google.protobuf.Empty) {}
+    rpc delete(StorySearchRequest) returns (google.protobuf.Empty) {}
+}
+
+
