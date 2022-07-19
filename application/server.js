@@ -50,7 +50,9 @@ const startGrpcService = () => {
     grpc.ServerCredentials.createInsecure(),
     () => routeServer.start()
   );
+
   log.info('Server started');
+  return routeServer;
 };
 
 module.exports = startGrpcService;
