@@ -29,5 +29,7 @@ const runTests = (path) => {
 };
 
 const unitTestsPath = `${__dirname}/unit/`;
+const e2eTestsPath = `${__dirname}/e2e/`;
 
 describe('Unit', () => runTests(unitTestsPath));
+// describe('E2E', () => runTests(e2eTestsPath));
